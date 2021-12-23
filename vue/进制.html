@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>进制转换器</title>
+
+	</head>
+	<script language="javascript">
+		function converter() {
+			var num = document.getElementById("in").value;
+			var type = document.getElementById("title");
+			var tynum, to;
+			for (var i = 0; i < type.length; i++) {
+				if (type[i].selected)
+					tynum = parseInt(type[i].value);
+			}
+			switch (tynum) {
+				case (1):
+					to = parseInt(num).toString(2);
+					break;
+				case (2):
+					to = parseInt(num).toString(8);
+					break;
+				case (3):
+					to = parseInt(num).toString(16);
+					break;
+				case (4):
+					to = parseInt(num, 2);
+					break;
+				case (5):
+					to = parseInt(num, 8);
+					break;
+				case (6):
+					to = parseInt(num, 16);
+					break;
+				case (7):
+					to = parseInt(num, 2).toString(8);
+					break;
+				case (8):
+					to = parseInt(num, 8).toString(2);
+					break;
+				case (9):
+					to = parseInt(num, 2).toString(16);
+					break;
+				case (10):
+					to = parseInt(num, 16).toString(2);
+					break;
+				case (11):
+					to = parseInt(num, 8).toString(16);
+					break;
+				case (12):
+					to = parseInt(num, 16).toString(8);
+					break;
+			}
+			if (isNaN(to))
+				to = "输入错误"
+			document.getElementById("out").value = to;
+		}
+	</script>
+	<body bgcolor="#d0d0d0">
+
+		<div align="center">
+			<div id="1">
+				<h1>10，2，8，16进制间的相互转化</h1>
+			</div>
+			<hr>
+			<div id="2">
+				<div id="3">
+					<select name="title" id="title" style="width:152px;">
+						<option value="1">十进制转二进制</option>
+						<option value="2">十进制转八进制</option>
+						<option value="3">十进制转十六进制</option>
+
+						<option value="4">二进制转十进制</option>
+						<option value="7">二进制转八进制</option>
+						<option value="9">二进制转十六进制</option>
+
+						<option value="5">八进制转十进制</option>
+						<option value="8">八进制转二进制</option>
+						<option value="11">八进制转十六进制</option>
+
+						<option value="6">十六进制转十进制</option>
+						<option value="10">十六进制转二进制</option>
+						<option value="12">十六进制转八进制</option>
+					</select>
+				</div>
+				<br />
+				<div id="4">
+					<input type="text" id="in" /><br>
+					<input type="text" id="out" /><br />
+					<br />
+					<input type="button" value="change" onclick="converter()" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
